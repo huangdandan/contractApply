@@ -1,0 +1,290 @@
+body, html {
+	background: #fff;
+	color: #293239;
+}
+.um-red {
+	color: #ff2f48;
+}
+.um-header {
+	background: #fff;
+}
+.um-row {
+	margin: 0 -15px;
+}
+.um-header-title, .um-header h3 {
+	color: #000;
+	font-weight: normal;
+}
+.um-back:before {
+	border-color: #000;
+	border-width: 1px;
+}
+.um-list .um-list-item-inner {
+	text-indent: 15px;
+}
+.um-list a.um-list-item:before {
+	border-left: 2px solid #c2c2c2;
+	border-top: 2px solid #c2c2c2;
+	border-bottom: none;
+}
+.um-list a.um-list-item.active:before {
+	border-bottom: 2px solid #c2c2c2;
+	border-right: 2px solid #c2c2c2;
+	border-left: none;
+	border-top: none;
+}
+.um-list a.um-list-item:active, .um-list a.um-list-item.active {
+	background-color: #f3f5f7;
+}
+.btn-danger {
+	color: #ff3b30 !important;
+	background-color: #fff;
+	border-color: #ff3b30 !important;
+}
+/* iscroll */
+#wrapper {
+	top: 58px !important;
+}
+/* tab */
+.um-tabbar > li > a {
+	color: #656565;
+	font-size: 16px;
+	line-height: 40px;
+}
+.um-tabbar-underline > li.active {
+	color: #ff002d;
+	background-color: transparent;
+	border-bottom: 2px solid #ff002d;
+}
+.um-tabbar-underline > li.active > a {
+	background-color: transparent;
+	color: #ff002d;
+}
+.title {
+	background: url("../img/title_bg.png") no-repeat center center;
+	background-size: 100%;
+	color: #fff;
+	font-size: 14px;
+	padding: 6px 15px;
+}
+.title span {
+	font-size: 16px;
+	margin-left: 10px;
+}
+.title img {
+	margin-right: 10px
+}
+.artical > div {
+	display: none;
+}
+.artical > div.active {
+	display: block;
+}
+.btnCon .btn {
+	display: inline;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	margin-right: 10px;
+}
+.msg-info {
+	position: relative;
+}
+.msg-info .um-badge {
+	position: absolute;
+	right: -10px;
+	font-size: 12px;
+}
+.msg-header {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: blue;
+	border-radius: 50%;
+	text-align: center;
+	color: white;
+}
+.pullDown .pullDownIcon, .pullUp .pullUpIcon {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: url(./img/pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size: 40px 80px;
+	background-size: 40px 80px;
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 250ms;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+
+.m0 {
+	margin: 0;
+}
+.col666 {
+	color: #666;
+}
+.border-bottom {
+	border-bottom: 1px solid #eaeaea;
+}
+.border-top {
+	border-top: 1px solid #eaeaea;
+}
+.border-left {
+	border-left: 1px solid #eaeaea;
+}
+.border {
+	border: 1px solid #eaeaea;
+}
+.fw-bold {
+	font-weight: bold;
+}
+.split {
+	height: 10px;
+	background-color: #f7f6f9;
+}
+.common-title {
+	height: 45px;
+	line-height: 45px;
+	border-bottom: 1px solid #eaeaea;
+	font-weight: normal;
+	font-size: 16px;
+}
+/*弹出层*/
+.alpha {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.alpha body {
+	height: 100%;
+	overflow: hidden;
+}
+.apply-model {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+	top: 0;
+	z-index: 99;
+}
+.model-pannel {
+	background-color: #fff;
+	width: 90%;
+	height: 90%;
+	margin: 0 auto;
+}
+.main-con {
+	height: 70%;
+}
+.main-con textarea {
+	width: 100%;
+	height: 100%;
+	outline: none;
+}
+/*合同信息*/
+
+.contract-title {
+	height: 45px;
+	line-height: 45px;
+	border-bottom: 1px solid #eaeaea;
+	font-weight: normal;
+	font-size: 16px;
+}
+.cc-detail-val {
+	flex: 1;
+	-webkit-flex: 1;
+}
+/*支付方式*/
+.payways-con {
+	min-height: 110px;
+	_min-height: 110px;
+}
+/*附件*/
+
+.file-attach-title {
+	line-height: 40px;
+}
+
+.fa-detail-val {
+	-webkit-flex: 1;
+	flex: 1;
+}
+/*审批操作*/
+.special-introduce-title {
+	line-height: 40px;
+}
+.special-introduce-con {
+	min-height: 110px;
+	_min-height: 110px;
+	border: 1px solid #eaeaea;
+	width: 100%;
+	text-align: left;
+}
+.apply-operate-btns .btn, .apply-operate-btns-model .btn {
+	color: #807f81;
+	border-color: #807f81;
+}
+.apply-operate-btns .btn.red-btn, .apply-operate-btns-model .btn.red-btn {
+	color: #ff2f48;
+	border-color: #ff2f48;
+}
+
+/*历史审批*/
+.apply-records-table {
+	font-size: 12px;
+	border: 1px solid #b5bac5;
+	text-align: center;
+	margin-top: 10px;
+}
+.apply-records-table thead tr {
+	background-color: #f7f6f9;
+}
+.apply-records-table thead tr th {
+	padding: 10px 0;
+}
+.apply-records-table td {
+	padding: 10px 0;
+}
+
+/* 销售合同 */
+.contract-type-con {
+	padding: 10px 15px;
+	border-bottom: 1px solid #eaeaea;
+	margin: 0 15px;
+	padding: 10px 0;
+}
+.contract-type-con h4 {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+.contract-type-con h4 i {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	color: #fff;
+	text-align: center;
+	font-style: normal;
+	padding-right: 2px;
+	margin-right: 5px;
+	background: url("../img/tips.jpg") no-repeat;
+	background-size: 100%;
+}
+.contract-type h2 {
+	padding: 0 15px;
+	margin: 0;
+}
+.contract-type-con .um-xs-6 em, .contract-type-con .um-xs-12 em {
+	color: #999fae;
+	display: block;
+	font-size: 12px;
+	font-style: normal;
+}
+.contract-type-con p {
+	font-size: 12px;
+	line-height: 30px;
+}
+.contract-type-con h3 {
+	font-size: 26px;
+	margin: 0;
+}

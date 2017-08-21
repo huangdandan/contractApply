@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<meta charset="UTF-8">
+		<title>合同审批系统</title>
+		<link rel="stylesheet" href="../css/iuapmobile.um.css">
+		<link rel="stylesheet" href="../css/iscroll.css">
+		<link rel="stylesheet" href="../css/contract_common.css">
+
+		<script src="../js/public/jquery.min.js" ></script>
+		<script src="../js/public/doT.min.js"></script>
+		<script src="../js/scroll/iscroll.js"></script>
+		<script src="../js/scroll/iscrollconfig.js"></script>
+		<script src="../js/list.js" ></script>
+		<script src="../js/scroll/scroll.js"></script>
+		<script src="../js/public/contract_common.js"></script>
+		<script src="../js/public/history.js"></script>
+
+	</head>
+	<body>
+		<div id="win" class="um-win" >
+			<div id="content" class="um-content pr">
+				<ul class="um-tabbar um-tabbar-underline um-tabbar-switch mb10">
+					<li class="active" data-tar='.SC'>
+						<a>销售合同</a>
+					</li>
+					<li data-tar='.PC'>
+						<a>成本合同</a>
+					</li>
+					<li data-tar='.AC'>
+						<a>协议合同</a>
+					</li>
+				</ul>
+				<!-- <div class="title"><img src="../img/title_icon.png" alt="" />机构<span>江西分公司</span></div> -->
+				<div class="artical">
+					<div class="SC active">
+
+						<!-- <div id="wrapper">
+						<div class="uScrollList">
+						<ul class="um-list um-no-active" data-bind="foreach: data">
+						<li class="um-listview-row">
+						<a href="#" class="um-list-item um-swipe-action" onclick="showBtn(this)">
+						<div class="um-list-item-inner">
+						<div class="um-list-item-body">
+						<h4 class="um-media-heading fb f16 um-text-overflow" data-bind="text:sender"></h4>
+						<p class="um-gray f14 um-text-overflow fl" data-bind="text:lastMsg"></p>
+						<span class="um-gray f14 um-text-overflow fl " data-bind="text:money"></span>
+						<div class="cb"></div>
+						<div class="btnCon mt10 mb10" style="display:none">
+						<span class="btn btn-gray" onclick="checkInfo(this)">查看</span>
+						<span class="btn btn-gray">历史</span>
+						<span class="btn btn-gray">同意</span>
+						<span class="btn btn-gray">驳回</span>
+						</div>
+						</div>
+						<div class="pr10">
+						<span class="um-gray f12"></span>
+						</div>
+
+						</div> </a>
+						</li>
+						</ul>
+						</div>
+						</div> -->
+
+					</div>
+					<div class="PC">
+						外包合同
+					</div>
+					<div class="AC">
+						采购合同
+					</div>
+				</div>
+				<!-- 同意、驳回模态框 -->
+				<div class="apply-model none">
+					<div class="model-pannel um-css3-center">
+						<div class="split"></div>
+						<h2 class="J_model_pannel_title common-title m0 border-bottom border-top pl15"></h2>
+						<div class="split"></div>
+						<div class="main-con pl15 pr15">
+							<textarea class="p10 border" placeholder="请输入意见"></textarea>
+						</div>
+						<div class="apply-operate-btns-model ml15 mr15 pr10 pt10 pb10 tr border" style="border-top:none">
+							<button class="J_model_operate_btn btn btn-inline btn-sm red-btn">
+								同意
+							</button>
+							<!--  <button class="btn btn-inline btn-sm">驳回</button>
+							<button class="btn btn-inline btn-sm">完结</button> -->
+							<button class="J_model_cancel_btn btn btn-inline btn-sm">
+								取消
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script id="setData" type="text/x-dot-template">
+	{{for(i=0;i<it.length;i++){}}
+	<div id="wrapper">
+	<div class="uScrollList">
+	<ul class="um-list um-no-active">
+	<li class="um-listview-row">
+	<a href="#" class="um-list-item um-swipe-action" name="{{=it[i].id}}" onclick="showBtn(this,name)">
+	<div class="um-list-item-inner">
+	<div class="um-list-item-body">
+	<h4 class="um-media-heading fb f16 um-text-overflow">{{=it[i].company}}</h4>
+	<p class="um-gray f14 um-text-overflow fl"> {{=it[i].address}}</p>
+	<span class="um-gray f14 um-text-overflow fl">{{=it[i].money}}</span>
+	<div class="cb"></div>
+	<div class="btnCon mt10 mb10" style="display:none">
+	<span class="btn btn-gray" onclick="checkInfo(this)">查看</span>
+	<span class="btn btn-gray">历史</span>
+	<span class="btn btn-gray">同意</span>
+	<span class="btn btn-gray">驳回</span>
+	</div>
+	</div>
+	<div class="pr10">
+	<span class="um-gray f12"></span>
+	</div>
+	</div> </a>
+	</li>
+	</ul>
+	</div>
+	</div>
+	{{}}}
+</script>
