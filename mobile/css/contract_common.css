@@ -253,7 +253,6 @@ body, html {
 
 /* 销售合同 */
 .contract-type-con {
-	padding: 10px 15px;
 	border-bottom: 1px solid #eaeaea;
 	margin: 0 15px;
 	padding: 10px 0;
@@ -309,4 +308,12 @@ body, html {
 .notFound.active {
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
+}
+.common-title  .close-icon {
+	float: right;
+	width: 40px;
+	text-align: right;
+	height: 40px;
+	line-height: 40px;
+	font-size: 26px;
 }

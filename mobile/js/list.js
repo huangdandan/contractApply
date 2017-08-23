@@ -4,13 +4,12 @@ var currPage=0;
 var pageSize = 10;
 var tar = 'SC';
 var oldtar = '';
-var id = '';
+var contractID = '';
 $(function() {
 	serviceDataList(currPage, pageSize);
 	//tab
 	$('ul.um-tabbar-switch  Li').click(function() {
 		tar = $(this).attr('data-tar');
-		window.localStorage.setItem('contractType', tar);
 		if (tar == oldtar)
 			return false;
 		$(this).addClass('active').siblings('.active').removeClass('active');
@@ -62,9 +61,9 @@ function serviceDataList(pn, ps) {
 }
 
 //显示隐藏按钮
-function showBtn(e, id) {
-	window.localStorage.setItem('contractId', id);
-	if ($(e).find(".apply-operate-btns").hasClass("active")) {
+function showBtn(e,id) {
+
+    if ($(e).find(".apply-operate-btns").hasClass("active")) {
 		$(e).removeClass("active");
 		$(e).find(".apply-operate-btns").slideUp(300).removeClass("active");
 		$(e).siblings().find(".apply-operate-btns").slideUp(300).removeClass("active");
@@ -72,16 +71,18 @@ function showBtn(e, id) {
 		$(e).addClass("active");
 		$(e).find(".apply-operate-btns").slideDown(300).addClass("active");
 	}
+    event.stopPropagation();
 }
 
 //查看
 function checkInfo(e) {
+    contractID=$(e).attr('data-id');
 if(tar=='SC'){
-	window.location.href = "../html/SC.html"
+	window.location.href = "../html/SC.html?contractID="+contractID+"&contractType="+tar;
 }else if(tar=='AC'){
-	window.location.href = "../html/AC.html";
+	window.location.href = "../html/AC.html?contractID="+contractID+"&contractType="+tar;
 }else{
-    window.location.href = "../html/PC.html";
+    window.location.href = "../html/PC.html?contractID="+contractID+"&contractType="+tar;
 }
 	$(e).addClass("btn-danger");
 	event.stopPropagation();
@@ -109,3 +110,4 @@ function tips(e,type) {
 function refresh() {
 	window.location.reload();
 }
+

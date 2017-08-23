@@ -35,66 +35,36 @@
 						<a>协议合同</a>
 					</li>
 				</ul>
-				<!-- <div class="title"><img src="../img/title_icon.png" alt="" />机构<span>江西分公司</span></div> -->
 				<div class="artical">
 					<div class="SC active">
 					<div id="wrapper">
 						<div class="uScrollList">
-						<ul class="um-list um-no-active">
-							<!--<<li class="um-listview-row">
-                            <a href="#" class="um-list-item um-swipe-action" onclick="showBtn(this)">
-                            <div class="um-list-item-inner">
-                            <div class="um-list-item-body">
-                            <h4 class="um-media-heading fb f16 um-text-overflow" data-bind="text:sender"></h4>
-                            <p class="um-gray f14 um-text-overflow fl" data-bind="text:lastMsg"></p>
-                            <span class="um-gray f14 um-text-overflow fl " data-bind="text:money"></span>
-                            <div class="cb"></div>
-                            <div class="btnCon mt10 mb10" style="display:none">
-                            <span class="btn btn-gray" onclick="checkInfo(this)">查看</span>
-                            <span class="btn btn-gray">历史</span>
-                            <span class="btn btn-gray">同意</span>
-                            <span class="btn btn-gray">驳回</span>
-                            </div>
-                            </div>
-                            <div class="pr10">
-                            <span class="um-gray f12"></span>
-                            </div>
-
-                            </div> </a>
-                            </li>-->
-                            </ul>
-                            </div>
-                            </div>
-
-                        </div>
-					<div class="PC">
-
+						<ul class="um-list um-no-active"></ul>
+						</div>
 					</div>
-					<div class="AC">
-
 					</div>
 				</div>
 				<!-- 同意、驳回模态框 -->
-			<!--	<div class="apply-model none">
-					<div class="model-pannel um-css3-center">
-						<div class="split"></div>
-						<h2 class="J_model_pannel_title common-title m0 border-bottom border-top pl15"></h2>
-						<div class="split"></div>
-						<div class="main-con pl15 pr15">
-							<textarea class="p10 border" placeholder="请输入意见"></textarea>
-						</div>
-						<div class="apply-operate-btns-model ml15 mr15 pr10 pt10 pb10 tr border" style="border-top:none">
-							<button class="J_model_operate_btn btn btn-inline btn-sm red-btn">
-								同意
-							</button>
-							&lt;!&ndash;  <button class="btn btn-inline btn-sm">驳回</button>
-							<button class="btn btn-inline btn-sm">完结</button> &ndash;&gt;
-							<button class="J_model_cancel_btn btn btn-inline btn-sm">
-								取消
-							</button>
-						</div>
+				<div class="apply-model none">
+				<!-- 历史审批意见 -->
+				<div class="J_history_record_wrap history_record_wrap"></div>
+				<!-- 审批操作 -->
+				<div class="model-pannel  um-css3-center">
+					<div class="split"></div>
+					<h2 class="J_model_pannel_title common-title m0 border-bottom border-bottom border-top pr15 pl15"> </h2>
+					<div class="split"></div>
+					<div class="main-con border-bottom pr15 pl15 ">
+						<textarea class="p10 um-noborder" placeholder="请输入意见"></textarea>
 					</div>
-				</div>-->
+					<div class="apply-operate-btns-model pt10 pb10 tr  pr15 pl15">
+						<button class="J_model_operate_btn btn btn-inline btn-sm red-btn">同意</button>
+						<!--  <button class="btn btn-inline btn-sm">驳回</button>
+                         <button class="btn btn-inline btn-sm">完结</button> -->
+						<button class="J_model_cancel_btn btn btn-inline btn-sm">取消</button>
+					</div>
+				</div>
+			</div>
+
 			</div>
 		</div>
 	</body>
@@ -106,17 +76,17 @@
 	<a href="#" class="um-list-item um-swipe-action" name="{{=it[i].contractId}}" onclick="showBtn(this,name)">
 	<div class="um-list-item-inner">
 	<div class="um-list-item-body">
-		<div class="um-list-item-left" onclick="checkInfo(this)">
+		<div class="um-list-item-left" data-id="{{=it[i].contractId}}" onclick="checkInfo(this)">
 			<h4 class="um-media-heading fb f16 um-text-overflow">{{=it[i].contractName}}</h4>
 			<p class="um-gray f14 um-text-overflow fl"> {{=it[i].customerName}}</p>
 			<span class="um-gray f14 um-text-overflow fl">{{=it[i].amount}}</span>
 		</div>
 	<div class="cb"></div>
 		<div class="apply-operate-btns pt10 pb10 pr15" style="display:none">
-			<button class="btn btn-inline btn-sm red-btn">同意</button>
-			<button class="btn btn-inline btn-sm">驳回</button>
-			<button class="btn btn-inline btn-sm">完结</button>
-			<button class="btn btn-inline btn-sm">取消</button>
+			<button class="btn btn-inline btn-sm red-btn J_model_operate_btn">同意</button>
+			<button class="J_apply_btn btn btn-inline btn-sm">驳回</button>
+			<button class="J_apply_btn btn btn-inline btn-sm">完结</button>
+			<button class="J_apply_btn btn btn-inline btn-sm">取消</button>
 		</div>
 
 	</div>
