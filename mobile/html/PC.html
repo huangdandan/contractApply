@@ -9,31 +9,115 @@
 		<link rel="stylesheet" href="../css/iuapmobile.um.css">
 		<link rel="stylesheet" href="../css/iscroll.css">
 		<link rel="stylesheet" href="../css/contract_common.css">
-
 		<script src="../js/public/jquery.min.js" ></script>
 		<script src="../js/public/doT.min.js"></script>
-		<script src="../js/PC.js" ></script>
 		<script src="../js/public/contract_common.js"></script>
-		<script src="../js/public/history.js"></script>
+
 	</head>
 	<body>
 		<div class="um-win" id="index">
 			<div class="um-content">
-				<div class="title"><img src="../img/title_icon.png" alt="" />机构<span>江西分公司</span>
+			<div  class="contract-con">
+
+
+			</div>
+
+			<div class="split"></div>
+
+			<!-- 同意、驳回模态框 -->
+			 <div class="apply-model none">
+			 	<!-- 历史审批意见 -->
+			 	<div class="J_history_record_wrap history_record_wrap"></div>
+			 	<!-- 审批操作 -->
+			    <div class="model-pannel  um-css3-center">
+			       <div class="split"></div>
+			      <h2 class="J_model_pannel_title common-title m0 border-bottom border-bottom border-top pr15 pl15"> </h2>
+			        <div class="split"></div>
+			       <div class="main-con border-bottom pr15 pl15 ">
+			         <textarea class="p10 um-noborder" placeholder="请输入意见"></textarea>
+			       </div>
+			       <div class="apply-operate-btns-model pt10 pb10 tr  pr15 pl15">
+				   <button class="J_model_operate_btn btn btn-inline btn-sm red-btn">同意</button>
+				  <!--  <button class="btn btn-inline btn-sm">驳回</button>
+				   <button class="btn btn-inline btn-sm">完结</button> -->
+				   <button class="J_model_cancel_btn btn btn-inline btn-sm">取消</button>
+				</div>
+			    </div>
+			 </div>
+
+			 </div>
+<!--
+			<div class="um-footer">
+
+			</div> -->
+		</div>
+	</body>
+</html>
+<script id="setData" type="text/x-dot-template">
+
+	<div class="title"><img src="../img/title_icon.png" alt="" />机构<span>{{=it.coName}}</span>
 				</div>
 				<!-- 合同主信息 -->
+				{{? it.type ==1}}
+
+				<!-- 服务外包合同 -->
 				<div class="contract-info">
 				  <h2 class="contract-title pl15 pr15 m0 contract-title">
-				           采购合同主信息
+				           服务外包合同主信息
 				  </h2>
 				  <div class="contract-con">
 				     <ul class="cc-details ml15 mr15 border-bottom f14">
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">供应商</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">伙伴名称</span>
+				        <span class="cc-detail-val col333">{{=it.partnerName}}</span>
+				       </li>
+				       <li class="um-box cc-detail  pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">合作项目</span>
+				        <span class="cc-detail-val col333">{{=it.cooperativeProject}}</span>
+				       </li>
+				       <li class="um-box cc-detail  pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">合作内容</span>
+				        <span class="cc-detail-val col333">{{=it.cooperativeContent}}</span>
+				       </li>
+				       <li class="um-box os-detail pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">合作区域/最终用户</span>
+				        <span class="cc-detail-val col333">{{=it.cooperativeArea}}</span>
+				       </li>
+				       <li class="um-box os-detail pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">外包合同金额</span>
+				        <span class="cc-detail-val col333">{{=it.outsourceContractAmount}}</span>
+				       </li>
+				       <li class="um-box cc-detail  pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">外包比例</span>
+				        <span class=" cc-detail-val col333">{{=it.outsourcePercent}}</span>
+				       </li>
+				       <li class="um-box cc-detail pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">系统暂估金额</span>
+				        <span class="cc-detail-val um-red">{{=it.tempPercent}}</span>
+				       </li>
+
+				     </ul>
+				  </div>
+				  </div>
+				  <div class="split"></div>
+
+				<!-- 服务外包合同   end-->
+				{{?? it.type == 2}}
+
+
+				<!-- 商品采购合同 -->
+				 <div class="contract-info">
+				  <h2 class="contract-title pl15 pr15 m0 contract-title">
+				           商品采购合同主信息
+				  </h2>
+				  <div class="contract-con">
+				     <ul class="cc-details ml15 mr15 f14">
+				       <li class="um-box cc-detail pt5 pb5">
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">供应商名称</span>
 				        <span class="cc-detail-val col333">供应商测试工程营所谓供应商测试工程营所谓</span>
 				       </li>
 				       <li class="um-box cc-detail  pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">合同类型</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">采购合同类型</span>
 				        <span class="cc-detail-val col333">硬件采购</span>
 				       </li>
 				       <li class="um-box os-detail pt5 pb5">
@@ -41,71 +125,49 @@
 				        <span class="cc-detail-val col333">北京市门头沟教育会计核算中心</span>
 				       </li>
 				       <li class="um-box os-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">最终用户</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">合作区域/最终用户</span>
 				        <span class="cc-detail-val col333">北京市门头沟教育会计核算中心</span>
 				       </li>
 				       <li class="um-box cc-detail  pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">销售金额</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">销售合同金额</span>
 				        <span class=" cc-detail-val col333">50000.00</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">收款金额</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">销售合同收款金额</span>
 				        <span class="cc-detail-val um-red">46000.00</span>
 				       </li>
 				         <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">采购金额</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">采购合同金额</span>
 				        <span class="cc-detail-val col333">50000.00</span>
 				       </li>
 				          <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">采购部分销售金额</span>
+				        <span class="cc-detail-name w60 tr ib mr10 um-gray">采购部分销售额</span>
 				        <span class="cc-detail-val col333">5000.00</span>
 				       </li>
 				        <li class="um-box cc-detail pt5 pb5">
 				        <span class="cc-detail-name w60 tr ib mr10 um-gray">毛利率</span>
 				        <span class="cc-detail-val col333">0.00%</span>
 				       </li>
-				       
+
 				     </ul>
 				  </div>
 				  </div>
-				  <div class="split"></div>
-				  <!-- 补充变更终止协议-->
-				<div class="contract-info">
-				  <h2 class="contract-title pl15 pr15 m0 contract-title">
-				         补充变更终止协议
-				  </h2>
-				  <div class="contract-con">
-				     <ul class="cc-details ml15 mr15 border-bottom f14">
-				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">协议类型</span>
-				        <span class="cc-detail-val col333">补充协议</span>
-				       </li>
-				       <li class="um-box cc-detail  pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">对方合同签订主体</span>
-				        <span class="cc-detail-val col333">对方合同签订主体</span>
-				       </li>
-				       <li class="um-box os-detail pt5 pb5">
-				        <span class="cc-detail-name w60 tr ib mr10 um-gray">变更或终止原因</span>
-				        <span class="cc-detail-val col333">北京市门头沟教育会计核算中心</span>
-				       </li>
-				      
-				       
-				     </ul>
-				  </div>
-				  </div>
-				  <div class="split"></div>
+
+
+				<!-- 商品采购合同  end -->
+                           {{?}}
 				   <!-- 付款-->
-				     <div class="payways pl15 pr15 pb15">
-				      <h2 class="common-title m0 border-bottom ">付款条款</h2>
-				      
-				      <ul class="cc-details border-bottom f14">
+				     <div class="payways  pb15 pl15 pr15">
+				      <h2 class="common-title m0 border-bottom  border-top ">付款条款</h2>
+
+				      <ul class="cc-details border-bottom f14 ">
 				       <li class="um-box cc-detail pt5 pb5">
 				        <span class="cc-detail-name w60 tr ib mr10 um-gray">付款条款</span>
-				        <span class="cc-detail-val col333">90%同比例支付,10%考核后支付</span>
+				        <span class="cc-detail-val col333">{{=it.paymentItem}}</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
 				        <span class="cc-detail-name w60 tr ib mr10 um-gray">备注说明</span>
-				        <span class="cc-detail-val col333">供应商测试工程营所谓供应商测试工程营所谓</span>
+				        <span class="cc-detail-val col333">{{=it.commentStatement}}</span>
 				       </li>
 				       </ul>
 				     </div>
@@ -113,66 +175,66 @@
 				  	<!-- 辅助审批 -->
 				   <div class="assist-apply pl15 pr15 pb15">
 				      <h2 class="common-title m0 border-bottom ">辅助审批信息</h2>
-				      
+
 				      <ul class="cc-details border-bottom f14">
 				       <li class="um-box cc-detail pt5 pb5">
 				        <span class="cc-detail-name w100 tr ib mr10 um-gray">销售合同金额</span>
-				        <span class="cc-detail-val col333">200.00</span>
+				        <span class="cc-detail-val col333">{{=it.salesContractAmount}}</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w100 tr ib mr10 um-gray">收款比例</span>
-				        <span class="cc-detail-val col333">100%</span>
+				        <span class="cc-detail-name w100 tr ib mr10 um-gray">销售合同收款完成比例</span>
+				        <span class="cc-detail-val col333">{{=it.amountCollected}}%</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w100 tr ib mr10 um-gray">权责比例</span>
-				        <span class="cc-detail-val col333">100%</span>
+				        <span class="cc-detail-name w100 tr ib mr10 um-gray">销售合同权责完成比例</span>
+				        <span class="cc-detail-val col333">{{=it.salesContractResponsibilities}}%</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w100 tr ib mr10 um-gray">开票类型</span>
-				        <span class="cc-detail-val col333">6%增值税专用发票</span>
+				        <span class="cc-detail-name w100 tr ib mr10 um-gray">外包合同开票类型</span>
+				        <span class="cc-detail-val col333">{{=it.outsourceContractBillingType}}</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w100 tr ib mr10 um-gray">其他外包情况</span>
-				        <span class="cc-detail-val col333">123456</span>
+				        <span class="cc-detail-name w100 tr ib mr10 um-gray">本销售合同其他外包情况</span>
+				        <span class="cc-detail-val col333">{{=it.salesContractOtherConditions}}</span>
 				       </li>
-				       
+
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w100 tr ib mr10 um-gray">预算外包率</span>
-				        <span class="cc-detail-val col333">10.30%</span>
+				        <span class="cc-detail-name w100 tr ib mr10 um-gray">机构预算外包率</span>
+				        <span class="cc-detail-val col333">{{=it.institutionOutsourceBudgetPercent}}%</span>
 				       </li>
 				       <li class="um-box cc-detail pt5 pb5">
-				        <span class="cc-detail-name w100 tr ib mr10 um-gray">预算完成率</span>
-				        <span class="cc-detail-val col333">9.07%</span>
+				        <span class="cc-detail-name w100 tr ib mr10 um-gray">全责收入完成率预算完成率-外包成本完成率</span>
+				        <span class="cc-detail-val col333">{{=it.completionPercentMinus}}%</span>
 				       </li>
 				       </ul>
 				     </div>
 				  <!-- 辅助审批 -->
-				  
+
 				  <div class="split"></div>
 				  <!-- 附件 -->
-				  <div class="file-attach pr15 pl15">
-				     <h2 class="common-title m0 border-bottom ">附件上传</h2>
-				    <ul class="fa-details f14">
+				  <div class="file-attach ">
+				     <h2 class="common-title m0 border-bottom pr15 pl15 ">查看附件</h2>
+				    <ul class="fa-details f14 pr15 pl15">
 				    <li class="fa-detail um-box border-bottom pt10 pb10">
 				      <span class="fa-detail-name  ib mr10 tr um-gray">商品采购合同</span>
-				      <span class="fa-detail-val tr um-text-overflow "><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.xlsx</span></a></span>
+				      <span class="fa-detail-val tr um-text-overflow f12"><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.xlsx</span></a></span>
 				    </li>
 				    <li class="fa-detail um-box border-bottom pt10 pb10">
 				      <span class="fa-detail-name ib mr10 tr um-gray">销售合同评审记录</span>
-				      <span class="fa-detail-val tr um-text-overflow"><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.docx</span></a></span>
+				      <span class="fa-detail-val tr um-text-overflow f12"><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.docx</span></a></span>
 				    </li>
 				    <li class="fa-detail um-box border-bottom pt10 pb10">
 				      <span class="fa-detail-name ib mr10 tr um-gray">商品采购合同</span>
-				      <span class="fa-detail-val tr um-text-overflow "><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.pdf</span></a></span>
+				      <span class="fa-detail-val tr um-text-overflow  f12"><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.pdf</span></a></span>
 				    </li>
 				    <li class="fa-detail um-box border-bottom pt10 pb10">
 				      <span class="fa-detail-name  ib mr10 tr um-gray">其他附件</span>
-				      <span class="fa-detail-val um-text-overflow tr "><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.pdf</span></a></span>
+				      <span class="fa-detail-val um-text-overflow tr f12"><a href="#"><span class="file-name">2016年有效合作供应商-截止9月</span><span class="extend-name">.pdf</span></a></span>
 				    </li>
 				    </ul>
-				    
+
 				  </div>
-				  
+
 				<!-- 审批操作 -->
 				<div class="apply-operate">
 				 <div class="special-introduce pl15 pr15">
@@ -180,17 +242,23 @@
 				         机构人员针对本合同的其他特殊说明
 				   </p>
 				   <div class="special-introduce-con f12 pt10 border-bottom">
-				    一些建议
-				   </div> 
+				   {{=it.comment}}
+				   </div>
 				 </div>
-				<div class="apply-operate-btns pt10 pb10 tr pr15 pl15">
-					<button class="J_apply_btn btn btn-inline btn-sm">历史</button>
-				   <button class="J_apply_btn btn btn-inline btn-sm red-btn">同意</button>
-				   <button class="J_apply_btn btn btn-inline btn-sm">驳回</button>
 
+
+
+				<div class="apply-operate-btns pt10 pb10 tr pr15 pl15">
+				  <button class="J_history_record btn btn-inline btn-sm red-btn">历史</button>
+				 <button class="J_apply_btn btn btn-inline btn-sm ">同意</button>
+				 <button class="J_apply_btn btn btn-inline btn-sm">驳回</button>
+				   <!-- <button class="J_apply_btn btn btn-inline btn-sm">完结</button> -->
 				   <button class=" btn btn-inline btn-sm">取消</button>
 				</div>
 				</div>
+
+
+		
 			 <!-- 同意、驳回模态框 -->
 			 <div class="apply-model none">
 			    <div class="model-pannel pr15 pl15 um-css3-center">
@@ -202,7 +270,7 @@
 			       </div>
 			       <div class="apply-operate-btns-model pt10 pb10 tr ">
 				   <button class="J_model_operate_btn btn btn-inline btn-sm red-btn">同意</button>
-				  <!--  <button class="btn btn-inline btn-sm">驳回</button>
+			 <button class="btn btn-inline btn-sm">驳回</button>
 				   <button class="btn btn-inline btn-sm">完结</button> -->
 				   <button class="J_model_cancel_btn btn btn-inline btn-sm">取消</button>
 				</div>
@@ -210,10 +278,6 @@
 			 </div>
 			 
 			 </div>
-<!-- 
-			<div class="um-footer">
 
-			</div> -->
-		</div>
-	</body>
-</html>
+
+</script>
