@@ -10,17 +10,17 @@
 
 		<script src="../js/public/jquery.min.js" ></script>
 		<script src="../js/public/doT.min.js"></script>
-
 		<script src="../js/public/contract_common.js"></script>
-		<script src="../js/public/history.js"></script>
 	</head>
 	<body>
 		<div class="um-win" id="index">
-			<div class="um-content">
+			<div class="um-content contract-con">
 				<!-- 合同主信息 -->
+				<script id="setData" type="text/x-dot-template">
+					<div class="title"><img src="../img/title_icon.png" alt="" />机构<span>{{=it.coName}}</span>
+					</div>
 				<div class="contract-info">
 					<h2 class="contract-title pl15 pr15 m0 contract-title"> 基本信息 </h2>
-					<div class="contract-con">
 						<ul class="cc-details ml15 mr15 f14">
 							<li class="um-box cc-detail pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">合同名称</span>
@@ -28,39 +28,41 @@
 							</li>
 							<li class="um-box cc-detail  pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">签约主体</span>
-								<span class="cc-detail-val col333">北京市门头沟区教育会计核算中心</span>
+								<span class="cc-detail-val col333">{{=it.customerSigner}}</span>
 							</li>
 							<li class="um-box os-detail pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">最终用户</span>
-								<span class="cc-detail-val col333">北京市门头沟区教育会计核算中心</span>
+								<span class="cc-detail-val col333">{{=it.finalCustomer}}</span>
 							</li>
 							<li class="um-box cc-detail  pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">合同金额</span>
-								<span class=" cc-detail-val col333">50000.00</span>
+								<span class=" cc-detail-val um-red">{{=it.contractAmount}}</span>
 							</li>
 							<li class="um-box cc-detail pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">履约保证金</span>
-								<span class="cc-detail-val um-red">0.00%</span>
+								<span class="cc-detail-val ">{{=it.performanceBond}}</span>
 							</li>
 							<li class="um-box cc-detail pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">免费服务期</span>
-								<span class="cc-detail-val col333">12个月</span>
+								<span class="cc-detail-val col333">{{=it.freeServicePeriod}}个月</span>
 							</li>
 							<li class="um-box cc-detail pt5 pb5">
 								<span class="cc-detail-name w70 tr ib mr10 um-gray">直分销类别</span>
-								<span class="cc-detail-val col333">标准</span>
+								<span class="cc-detail-val col333">{{=it.distributeType}}</span>
 							</li>
 						</ul>
-					</div>
 				</div>
 
 				<div class="contract-type">
 					<h2 class="contract-title m0 contract-title border-top">合同类型 </h2>
-					<div class="contract-type-con type1">
-						<h4><i>1</i>自有软件销售及技术服务合同</h4>
+					{{for(i=0;i<it.scContractTypeList.length;i++){}}
+					{{?it.scContractTypeList[i].contractType==11}}
+
+					<div class="contract-type-con">
+						<h4><i>{{=i+1}}</i>自有软件销售及技术服务合同</h4>
 						<div class="um-row">
 							<div class="um-xs-6">
-								<h3 class="um-red">30%</h3>
+								<h3 class="um-red">{{=it.scContractTypeList[i].outworkPercent}}%</h3>
 								<em> 外包成本暂估比例 </em>
 							</div>
 							<div class="um-xs-6 border-left">
@@ -74,21 +76,23 @@
 						</div>
 					</div>
 					<!-- type1 -->
+					{{??it.scContractTypeList[i].contractType==2}}
 					<div class="contract-type-con type2">
-						<h4><i>2</i>实施服务合同</h4>
+						<h4><i>{{=i+1}}</i>实施服务合同</h4>
 						<div class="um-row">
 							<div class="um-xs-12">
-								<h3 class="um-red">30%</h3>
+								<h3 class="um-red">{{=it.scContractTypeList[i].outworkPercent}}%</h3>
 								<em> 外包成本暂估比例 </em>
 							</div>
 						</div>
 					</div>
 					<!-- type2 -->
+					{{??it.scContractTypeList[i].contractType==3}}
 					<div class="contract-type-con type3">
-						<h4><i>3</i>技术开发合同</h4>
+						<h4><i>{{=i+1}}</i>技术开发合同</h4>
 						<div class="um-row">
 							<div class="um-xs-12">
-								<h3 class="um-red">30%</h3>
+								<h3 class="um-red">{{=it.scContractTypeList[i].outworkPercent}}%</h3>
 								<em> 外包成本暂估比例 </em>
 
 								<table class="apply-records-table" colspan="0" rowspan="0" border="1" width="100%" align="center">
@@ -109,73 +113,91 @@
 						</div>
 					</div>
 					<!-- type3 -->
+					{{??it.scContractTypeList[i].contractType==1}}
 					<div class="contract-type-con type4">
-						<h4><i>4</i>运维服务合同</h4>
+						<h4><i>{{=i+1}}</i>运维服务合同</h4>
 						<div class="um-row">
 							<div class="um-xs-6">
-								<h3 class="um-red">30%</h3>
+								<h3 class="um-red">{{=it.scContractTypeList[i].outworkPercent}}%</h3>
 								<em> 外包成本暂估比例 </em>
 							</div>
 							<div class="um-xs-6 border-left">
 								<p>
 									服务开始时间
-									<time>
-										2010年2月10日
-									</time>
+									<span onload='timeStamp2String(this,1500480000000)'>
+
+									</span>
 								</p>
 								<p>
 									服务结束时间
-									<time>
+									<span onload='timeStamp2String({{it.scContractTypeList[i].endTime}})'>
 										2017年2月10日
-									</time>
+									</span>
 								</p>
 							</div>
 						</div>
 					</div>
 					<!-- type4 -->
+					{{??it.scContractTypeList[i].contractType==5}}
 					<div class="contract-type-con type5">
-						<h4><i>5</i>增值服务合同</h4>
+						<h4><i>{{=i+1}}</i>增值服务合同</h4>
 						<div class="um-row">
 							<div class="um-xs-12">
-								<h3 class="um-red">30%</h3>
+								<h3 class="um-red">{{=it.scContractTypeList[i].outworkPercent}}%</h3>
 								<em> 外包成本暂估比例 </em>
 							</div>
 						</div>
 					</div>
 					<!-- type5 -->
+					{{??it.scContractTypeList[i].contractType==6}}
 					<div class="contract-type-con type6">
-						<h4><i>6</i>商品销售合同</h4>
+						<h4><i>{{=i+1}}</i>商品销售合同</h4>
 						<div class="um-row">
 							<div class="um-xs-6">
 								<h3 class="um-red">10%</h3>
 								<em> 暂估毛利率% </em>
 							</div>
+							<div class="um-xs-6 border-left">
+								<p>
+									外购成本暂估
+									<span>
+										500000
+									</span>
+								</p>
+
+							</div>
 						</div>
 					</div>
 					<!-- type6 -->
+					{{??it.scContractTypeList[i].contractType==7}}
 					<div class="contract-type-con type7">
-						<h4><i>7</i>租赁合同</h4>
+						<h4><i>{{=i+1}}</i>租赁合同</h4>
 						<div class="um-row">
 							<div class="um-xs-12">
-								<h3 class="um-red">30%</h3>
+								<h3 class="um-red">{{=it.scContractTypeList[i].outworkPercent}}%</h3>
 								<em> 外包成本暂估比例 </em>
 								<table class="apply-records-table" colspan="0" rowspan="0" border="1" width="100%" align="center">
 									<thead>
 										<tr>
 											<th>产品名称</th>
 											<th>包含模块</th>
+											<th>租期（年）</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<td>A++财务</td>
 											<td>部门预算管理系统</td>
+											<td>1</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
+					{{?}}
+					{{}}}
+
 					<!-- type7 -->
 				</div>
 				<div class="border-bottom pb10">
@@ -185,15 +207,22 @@
 							<table class="apply-records-table" colspan="0" rowspan="0" border="1" width="100%" align="center">
 								<thead>
 									<tr>
-										<th>产品名称</th>
-										<th>包含模块</th>
+										<th>编号</th>
+										<th>付款金额（元）</th>
+										<th>付款比例</th>
+										<th>阶段描述</th>
 									</tr>
 								</thead>
+
 								<tbody>
+								{{for(i=0;i<it.scPaymentClauseList.length;i++){}}
 									<tr>
-										<td>A++财务</td>
-										<td>部门预算管理系统</td>
+										<td></td>
+										<td>{{=it.scPaymentClauseList[i].paymentAmount}}</td>
+										<td>{{=it.scPaymentClauseList[i].paymentPercent}}</td>
+										<td>{{=it.scPaymentClauseList[i].description}}</td>
 									</tr>
+								{{}}}
 								</tbody>
 							</table>
 						</div>
@@ -230,14 +259,12 @@
 						<p class="special-introduce-title h40 fw-bold f14">
 							机构人员针对本合同的其他特殊说明
 						</p>
-						<textarea class="special-introduce-con f12 pt10">一些建议
-						</textarea>
-					</div>
-					<div class="special-introduce pl15 pr15">
-						<p class="special-introduce-title h40 fw-bold f14">
-							审批意见
-						</p>
-						<textarea class="special-introduce-con f12 pt10">一些建议
+						<textarea class="special-introduce-con f12 pt10" readonly>
+							{{?it.comment==null||it.comment==''||it.comment=='null'}}
+							暂无内容
+							{{??}}
+							{{=it.comment}}
+							{{?}}
 						</textarea>
 					</div>
 
@@ -257,109 +284,31 @@
 					</div>
 				</div>
 
-				<!-- 历史审批意见 -->
-				<div class="apply-records mb20">
-					<h2 class="common-title m0 border-bottom border-bottom border-top pl15 pr15">历史审批意见 </h2>
-					<div class="row clearfix">
-						<div class="um-xs-12">
-							<table class="apply-records-table pl15 pr15" colspan="0" rowspan="0" border="1" width="100%" align="center">
-								<thead>
-									<tr>
-										<th class="w60">审批人</th>
-										<th>审批意见</th>
-										<th class="w60">操作</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr align="center">
-										<td>张燕</td>
-										<td>提交合同</td>
-										<td>同意</td>
-									</tr>
-									<tr align="center">
-										<td>张燕</td>
-										<td>提交合同</td>
-										<td>同意</td>
-									</tr>
-									<tr align="center">
-										<td>张燕</td>
-										<td>提交合同</td>
-										<td>同意</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
 				</div>
 			</div>
 			<!-- 同意、驳回模态框 -->
 			<div class="apply-model none">
-				<div class="model-pannel um-css3-center">
+				<!-- 历史审批意见 -->
+				<div class="J_history_record_wrap history_record_wrap"></div>
+				<!-- 审批操作 -->
+				<div class="model-pannel  um-css3-center">
 					<div class="split"></div>
-					<h2 class="J_model_pannel_title common-title m0 border-bottom border-top pl15"></h2>
+					<h2 class="J_model_pannel_title common-title m0 border-bottom border-bottom border-top pr15 pl15"> </h2>
 					<div class="split"></div>
-					<div class="main-con pl15 pr15">
-						<textarea class="p10 border" placeholder="请输入意见"></textarea>
+					<div class="main-con border-bottom pr15 pl15 ">
+						<textarea class="p10 um-noborder" placeholder="请输入意见"></textarea>
 					</div>
-					<div class="apply-operate-btns-model ml15 mr15 pr10 pt10 pb10 tr border" style="border-top:none">
-						<button class="J_model_operate_btn btn btn-inline btn-sm red-btn">
-							同意
-						</button>
+					<div class="apply-operate-btns-model pt10 pb10 tr  pr15 pl15">
+						<button class="J_model_operate_btn btn btn-inline btn-sm red-btn">同意</button>
 						<!--  <button class="btn btn-inline btn-sm">驳回</button>
-						<button class="btn btn-inline btn-sm">完结</button> -->
-						<button class="J_model_cancel_btn btn btn-inline btn-sm">
-							取消
-						</button>
+                         <button class="btn btn-inline btn-sm">完结</button> -->
+						<button class="J_model_cancel_btn btn btn-inline btn-sm">取消</button>
 					</div>
 				</div>
 			</div>
+				</script>
 		</div>
-		<script >
-	function setCookie(c_name,value,expiredays)
-			{
-			var exdate=new Date()
-			exdate.setDate(exdate.getDate()+expiredays)
-			document.cookie=c_name+ "=" +escape(value)+
-			((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
-			}
-			setCookie("tenantid","00000000");
-			setCookie("token","d2ViLDM2MDAsdkxOQnc2OXp6OXVDellQMGRRVjNwSmhXRWd0TkIwbnJ0dUNXeUNBcVdESzgzZVFkQ0JIZU8rdHI3aEg5c2h0Mi9tRFoxMVdYTlJmdW9ZZ1M4b2ZvT3c9PQ");
-			setCookie("u_logints","1503295423242");
-			setCookie("u_usercode","XGXB");
+	</div>
 
-
-		var urlVal = "http://yyop.yonyougov.com/Po/wf/findContracts";
-		var param = {
-			 "contractType":"SC",
-			"contractName":"",
-			"signer":"",
-			"amountOption":"",
-			"amountStart":"",
-			"amountEnd":"",
-			"amount":"",
-			"startTime":"",
-			"endTime":"",
-			"status":3,
-			"pageStart":0,
-			"pageSize":10
-		}
-		$.ajax({
-				url : "http://localhost/Po/wf/findContracts",
-				data : param,
-				type : 'GET',
-				dataType : 'JSON',
-				success : function(result) {
-					if (result.errorCode == 'success') {
-						var data = result.data;
-						if (data && data.length > 0) {
-
-						}
-					}
-				},
-				error : function() {
-					//tips(".um-page.active .um-content");
-				}
-			})
-		</script>
 	</body>
 </html>
