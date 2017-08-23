@@ -16,7 +16,7 @@ $(function() {
 		$(this).addClass('active').siblings('.active').removeClass('active');
 		$("." + tar).addClass('active').siblings('.active').removeClass('active');
         oldtar =tar;
-        currPage = 1;
+        currPage = 0;
 		serviceDataList(currPage, pageSize);
 
 	});
@@ -43,7 +43,7 @@ function serviceDataList(pn, ps) {
                 var data = result.data;
                 if (data && data.length > 0) {
                     var dataText = doT.template($("#setData").text());
-                    if (pn == 1) {
+                    if (pn == 0) {
                         $("." + tar +' ul').html(dataText(data));
                     } else {
                         $("." + tar +' ul').append(dataText(data));
