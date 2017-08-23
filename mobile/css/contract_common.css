@@ -1,7 +1,6 @@
 body, html {
 	background: #fff;
 	color: #293239;
-	
 }
 .um-red {
 	color: #ff2f48;
@@ -37,11 +36,22 @@ body, html {
 .um-list a.um-list-item:active, .um-list a.um-list-item.active {
 	background-color: #f3f5f7;
 }
-.btn-danger {
-	color: #ff3b30 !important;
-	background-color: #fff;
-	border-color: #ff3b30 !important;
+.um-list .um-list-item-left{
+	width:80%!important;
 }
+
+.um-list .btn, .um-list .btn-bg, .um-list .um-btn {
+	transition: all ease 0.3s;
+	text-align: left;
+	color: #282828;
+	-webkit-border-image:none;
+	border-image: none;
+	border-width: 1px;
+	border-radius: 3px!important;
+	margin-right: 5px;
+}
+
+
 /* iscroll */
 #wrapper {
 	top: 58px !important;
@@ -80,12 +90,6 @@ body, html {
 }
 .artical > div.active {
 	display: block;
-}
-.btnCon .btn {
-	display: inline;
-	border: 1px solid #ccc;
-	font-size: 14px;
-	margin-right: 10px;
 }
 .msg-info {
 	position: relative;
@@ -288,4 +292,21 @@ body, html {
 .contract-type-con h3 {
 	font-size: 26px;
 	margin: 0;
+}
+/*tips*/
+.notFound {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	transition: transform ease 0.5s;
+	-webkit-transform: translate3d(0, 250%, 0);
+	transform: translate3d(0, 250%, 0);
+	z-index: 2;
+}
+.notFound.active {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }

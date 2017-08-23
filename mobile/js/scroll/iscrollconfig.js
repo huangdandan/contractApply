@@ -36,7 +36,7 @@
 				 
 		}
 		//放开可实现上下加载更多功能
-	/*	if (pullUpActionHandler) {
+	if (pullUpActionHandler) {
 			// If a pullUpActionHandler-function is supplied, add a pull-up bar in the bottom and enable pull-up-to-load.
 			// (if pullUpActionHandler==null this iScroll will have no pull-up-functionality)
 			pullUpEl=document.createElement('div');
@@ -46,7 +46,7 @@
 			scrollerObj.appendChild(pullUpEl);
 	
 		}
-	*/
+
 		me.myScroll = new IScroll(wrapperObj,iScrollConfig);
 
 		me.myScroll.on('refresh',function() {
