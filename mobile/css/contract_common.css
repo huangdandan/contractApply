@@ -230,6 +230,17 @@ body, html {
 }
 
 /*历史审批*/
+.history_record_wrap {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+     background-color: #fff;
+}
+.apply-records-con {
+   height: 80%;
+    overflow: auto;
+}
 .apply-records-table {
 	font-size: 12px;
 	border: 1px solid #b5bac5;
@@ -244,6 +255,14 @@ body, html {
 }
 .apply-records-table td {
 	padding: 10px 0;
+}
+.common-title  .close-icon {
+  float: right;
+    width: 40px;
+    text-align: right;
+    height: 40px;
+    line-height: 40px;
+    font-size: 26px;
 }
 
 /* 销售合同 */
